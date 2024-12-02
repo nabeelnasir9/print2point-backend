@@ -168,7 +168,7 @@ router.post("/initiate-payment", verifyToken("customer"), async (req, res) => {
         currency: "usd",
         customer: stripeCustomerId,
         payment_method: payment_method_id,
-        return_url: "http://localhost:5173",
+        return_url: process.env.Base_URL,
         setup_future_usage: "off_session",
         confirm: true,
   
@@ -189,7 +189,7 @@ router.post("/initiate-payment", verifyToken("customer"), async (req, res) => {
         currency: "usd",
         customer: stripeCustomerId,
         payment_method: payment_method_id,
-        return_url: "http://localhost:5173",
+        return_url: process.env.Base_URL,
         setup_future_usage: "off_session",
         confirm: true,
         description: `Payment for Print Job: ${printJob.print_job_title}`,
